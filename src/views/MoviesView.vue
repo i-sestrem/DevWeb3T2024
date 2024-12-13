@@ -133,4 +133,8 @@ onMounted(async () => {
   background-color: #455a08;
   box-shadow: 0 0 0.5rem #748708;
 }
+
+h1{
+  margin-top: 80px;
+}
 </style>

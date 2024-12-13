@@ -28,12 +28,17 @@ function toggleMenu() {
         <span class="bar"></span>
         <span class="bar"></span>
       </div>
+
+      <img class="logo" src="/src/assets/img/initial-m-logo-design-vector.jpg" alt="">
+
+      <i class="fa-solid fa-user"></i>
     </nav>
 
   </header>
 
 
   <div :class="['nav-menu', { active: isMenuActive }]">
+    <i class="fa-solid fa-x "  @click="toggleMenu()"></i>
     <nav class="nav-link">
 
       <ul class="ul-link">
@@ -58,12 +63,25 @@ function toggleMenu() {
 
 <style scoped>
 header {
-  height: 4rem;
+  height: 5rem;
   display: flex;
   background-color: black;
   color: #fff;
   font-size: 1.2rem;
   padding-left: 2rem;
+  position: relative;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+.hamburguer {
+  position: absolute;
+  left: 2rem;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .active {
@@ -97,8 +115,25 @@ nav a {
 
 .nav-menu {
   position: fixed;
-  display: none;
+  left: 0;
+  width: 30%;
+  height: 100%;
+  background-color: rgb(10, 10, 10);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transform: translateX(-100%);
+  transition: opacity 0.3s ease, transform 0.3s ease;
 }
+
+.nav-menu.active {
+  opacity: 1;
+  transform: translateX(0);
+}
+
 
 .nav-link {
   display: flex;
@@ -114,10 +149,42 @@ nav a {
 }
 
 
-
 .ul-link {
   list-style: none;
-  margin-top: 50px;
   gap: 20px;
 }
+
+.fa-x {
+position: absolute;
+color: #fff;
+font-size: 30px;
+top: 0;
+right: 5px;
+cursor: pointer;
+margin-top: 30px;
+margin-right: 30px;
+
+}
+
+.logo {
+  width: 170px;
+  height: 80px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.fa-user {
+  font-size: 30px;
+  position: absolute;
+  right: 2rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+
+
+
+
+
 </style>
