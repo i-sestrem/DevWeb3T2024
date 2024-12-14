@@ -32,7 +32,7 @@ onMounted(async () => {
 });
 </script>
 <template>
-    <h1>Filmes</h1>
+    <h1 class="title">FILMES</h1>
     <ul class="genre-list">
         <li v-for="genre in genres" :key="genre.id" @click="listMovies(genre.id)" class="genre-item">
             {{ genre.name }}
@@ -44,7 +44,7 @@ onMounted(async () => {
 
             <img :src="`https://image.tmdb.org/t/p/w500${movie.poster_path}`" :alt="movie.title" />
             <div class="movie-details">
-                <p class="movie-title">{{ movie.title }}</p>
+                <p class="movie-title">{{ (movie.title).toUpperCase() }}</p>
                 <p class="movie-release-date">{{ formatDate(movie.release_date) }}</p>
                 <p class="movie-genres">
                     <span v-for="genre_id in movie.genre_ids" :key="genre_id" @click="listMovies(genre_id)">
@@ -67,37 +67,40 @@ onMounted(async () => {
 }
 
 .genre-item {
-    background-color: #387250;
-    border-radius: 1rem;
     padding: 0.5rem 1rem;
     color: #fff;
 }
 
 .genre-item:hover {
     cursor: pointer;
-    background-color: #4e9e5f;
-    box-shadow: 0 0 0.5rem #387250;
+    background-color: #0c0c0c;
+
 }
 
 .movie-list {
     display: flex;
+    justify-content: center;
     flex-wrap: wrap;
-    gap: 1rem;
+    gap: 3rem;
 }
 
 .movie-card {
-    width: 15rem;
-    height: 30rem;
-    border-radius: 0.5rem;
+    width: 23rem;
+    height: 36rem;
     overflow: hidden;
-    box-shadow: 0 0 0.5rem #000;
+    background-color: #0c0c0c;
+    color: #fff;
+    transition: 0.1s;
+    text-align: center;
+}
+
+.movie-card:hover {
+  transform: translateY(-7px);
 }
 
 .movie-card img {
     width: 100%;
-    height: 20rem;
-    border-radius: 0.5rem;
-    box-shadow: 0 0 0.5rem #000;
+    height: 28rem;
 }
 
 .movie-details {
@@ -109,7 +112,9 @@ onMounted(async () => {
     font-weight: bold;
     line-height: 1.3rem;
     height: 3.2rem;
+    margin-top: 5px;
 }
+
 .movie-genres {
   display: flex;
   flex-direction: row;
@@ -120,21 +125,23 @@ onMounted(async () => {
 }
 
 .movie-genres span {
-  background-color: #748708;
-  border-radius: 0.5rem;
+  background-color: #000000;
   padding: 0.2rem 0.5rem;
   color: #fff;
-  font-size: 0.8rem;
-  font-weight: bold;
+  margin-top: 5px;
+  margin-bottom: 3px;
 }
 
 .movie-genres span:hover {
   cursor: pointer;
-  background-color: #455a08;
-  box-shadow: 0 0 0.5rem #748708;
+  background-color: #242424;
 }
 
-h1{
-  margin-top: 80px;
+
+.title {
+  color: white;
+  text-align: center;
+  margin-top: 110px;
+  margin-bottom: 50px;
 }
 </style>

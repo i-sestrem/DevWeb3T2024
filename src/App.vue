@@ -31,7 +31,16 @@ function toggleMenu() {
 
       <img class="logo" src="/src/assets/img/initial-m-logo-design-vector.jpg" alt="">
 
-      <i class="fa-solid fa-user"></i>
+
+
+      <div class="search-container-Desk">
+          <input class="search" v-model="searchQuery" placeholder="Pesquise..." />
+          <i class="fas fa-search search-icon"></i>
+        </div>
+
+
+
+      <router-link to="/login"><i class="fa-solid fa-user"></i></router-link>
     </nav>
 
   </header>
@@ -141,17 +150,20 @@ nav a {
   text-decoration: none;
   color: #fff;
 
+
 }
 
 .nav-item {
   margin-top: 30px;
   font-size: 11.5pt;
+
 }
 
 
 .ul-link {
   list-style: none;
   gap: 20px;
+
 }
 
 .fa-x {
@@ -170,16 +182,50 @@ margin-right: 30px;
   width: 170px;
   height: 80px;
   position: absolute;
-  left: 50%;
+  left: 9%;
   transform: translateX(-50%);
 }
 
 .fa-user {
-  font-size: 30px;
+  font-size: 25px;
   position: absolute;
   right: 2rem;
   top: 50%;
   transform: translateY(-50%);
+  transition: 0.2s;
+}
+
+.fa-user:hover {
+  color: #E50A14;
+}
+
+.search-container-Desk {
+  position: relative;
+  width: 500px;
+  display: flex;
+  align-items: center;
+  position: absolute;
+  right: 5rem;
+
+}
+
+.search {
+  width: 100%;
+  border: none;
+  border-radius: 10px;
+  padding: 9px 10px;
+  padding-left: 35px;
+  box-sizing: border-box;
+  transition: 0.3s;
+}
+
+.search-icon {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #888;
+  pointer-events: none;
 }
 
 

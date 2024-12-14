@@ -1,4 +1,6 @@
+
 import { createRouter, createWebHistory } from 'vue-router';
+
 
 const routes = [
   {
@@ -15,6 +17,11 @@ const routes = [
     path: '/tv',
     name: 'TV',
     component: () => import('../views/TvView.vue'),
+  },
+  {
+    path: '/login',
+    name: 'Login',
+    component: () => import('../views/LoginView.vue'),
   },
 ];
 
