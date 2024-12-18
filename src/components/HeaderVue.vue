@@ -122,7 +122,7 @@ nav a {
   z-index: 1000;
   width: 30%;
   height: 100%;
-  background-color: rgb(23, 23, 23);
+  background-color: rgb(10, 10, 10);
   text-align: center;
   display: flex;
   flex-direction: column;

@@ -13,7 +13,7 @@
 
 <template>
   <HeaderVue></HeaderVue>
-    <h1>Programas de TV</h1>
+    <h1>SÉRIES</h1>
     <ul class="genre-list">
       <li v-for="genre in genres" :key="genre.id" class="genre-item">
         {{ genre.name }}
@@ -32,18 +32,23 @@
     }
 
     .genre-item {
-      background-color: #5d6424;
-      border-radius: 1rem;
-      padding: 0.5rem 1rem;
-      align-self: center;
-      color: #fff;
-      display: flex;
-      justify-content: center;
-    }
+    padding: 0.5rem 1rem;
+    color: #fff;
+    background-color: #000000;
+    border-radius: 5px;
+    transition: 0.3s;
+}
 
-    .genre-item:hover {
-      cursor: pointer;
-      background-color: #7d8a2e;
-      box-shadow: 0 0 0.5rem #5d6424;
-    }
+.genre-item:hover {
+    cursor: pointer;
+    background-color: rgb(177, 22, 22);
+
+}
+
+h1 {
+  color: white;
+  text-align: center;
+  margin-top: 110px;
+  margin-bottom: 50px;
+}
   </style>

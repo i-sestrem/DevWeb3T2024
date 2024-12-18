@@ -1,7 +1,6 @@
 <script setup>
 import { ref, onMounted } from 'vue';
 import HeaderVue from '@/components/HeaderVue.vue';
-import FooterVue from '@/components/FooterVue.vue';
 import api from '@/plugins/axios';
 import Loading from 'vue-loading-overlay';
 
@@ -60,7 +59,7 @@ onMounted(async () => {
 
         </div>
     </div>
-    <FooterVue></FooterVue>
+
 </template>
 <style scoped>
 .genre-list {
@@ -75,11 +74,14 @@ onMounted(async () => {
 .genre-item {
     padding: 0.5rem 1rem;
     color: #fff;
+    background-color: #000000;
+    border-radius: 5px;
+    transition: 0.3s;
 }
 
 .genre-item:hover {
     cursor: pointer;
-    background-color: #0c0c0c;
+    background-color: rgb(177, 22, 22);
 
 }
 
@@ -88,11 +90,12 @@ onMounted(async () => {
     justify-content: center;
     flex-wrap: wrap;
     gap: 2rem;
+
 }
 
 .movie-card {
-    width: 21rem;
-    height: 36rem;
+    width: 24rem;
+    height: 39rem;
     overflow: hidden;
     background-color: #0c0c0c;
     color: #fff;

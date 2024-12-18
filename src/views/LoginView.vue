@@ -1,52 +1,41 @@
 <script setup>
-
 </script>
 
 <template>
-
-
   <div class="container">
+    <div class="login">
+      <RouterLink to="/">
+        <button class="back"><i class="fas fa-arrow-left"></i></button>
+      </RouterLink>
 
+      <div class="form">
+        <div style="display: flex;">
+          <h1 class="txt-white">SEJA BEM-VINDO</h1>
+          <h1 class="txt-red">STAR-PLUS</h1>
+        </div>
+        <p>Bem-vindo de volta, entre na sua conta de usuário</p>
 
+        <div class="input-group" style="margin-top: 30px;">
+          <i class="fas fa-envelope icon"></i>
+          <input type="text" placeholder="seuemail@gmail.com">
+        </div>
 
-  <div class="login">
+        <div class="input-group">
+          <i class="fas fa-lock icon"></i>
+          <input type="password" placeholder="sua senha">
+        </div>
 
-    <RouterLink to="/">
-      <button class="back"><i class="fas fa-arrow-left"></i></button>
-    </RouterLink>
+        <button class="btn-login">LOGIN</button>
 
-    <div class="form">
-      <div style="display: flex;"><h1 class="txt-white">SEJA BEM-VINDO</h1><h1 class="txt-red">STAR-PLUS</h1></div>
-      <p>Bem-vindo de volta, entre na sua conta de usuario</p>
-
-
-      <input style="margin-top: 10vh;" type="text" placeholder="seuemail@gmail.com">
-      <input type="password" placeholder="sua senha">
-
-      <button class="btn-login">
-
-        LOGIN
-
-      </button>
-
-      <p>Não possui conta? <RouterLink style="color: rgb(98, 138, 224);" to="/cadastro">Clique Aqui</RouterLink></p>
-
-
-
-
+        <p>Não possui conta?
+          <RouterLink style="color: rgb(98, 138, 224);" to="/cadastro">Clique Aqui</RouterLink>
+        </p>
+      </div>
     </div>
-
-
-
   </div>
-
-
-</div>
-
 </template>
 
 <style scoped>
-
 .container {
   display: flex;
 }
@@ -57,14 +46,9 @@
   height: 100vh;
 }
 
-input:focus {
-  outline: none
-}
-
 .txt-white {
   color: white;
   font-size: 1.5rem;
-
 }
 
 .txt-red {
@@ -78,10 +62,9 @@ input:focus {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 10vh;
+  margin-top: 15vh;
   gap: 10px;
   animation: slideUp 2s ease-out;
-
 }
 
 p {
@@ -89,15 +72,29 @@ p {
   font-size: 0.9rem;
 }
 
-input {
-  justify-content: center;
-  background-color:  rgb(15, 15, 15);
-  border: none;
-  border-bottom: 1px solid white;
+.input-group {
+  display: flex;
+  align-items: center;
+  background-color: rgb(39, 39, 39);
+  border-radius: 10px;
+  padding: 10px;
   width: 500px;
   height: 40px;
+  gap: 10px;
+}
+
+.icon {
+  color: white;
+  font-size: 16px;
+}
+
+input {
+  flex: 1;
+  background: none;
+  border: none;
   color: white;
   font-size: 13pt;
+  outline: none;
 }
 
 .btn-login {
@@ -106,28 +103,26 @@ input {
   padding: 15px;
   width: 500px;
   color: white;
-  margin-top: 50px;
+  margin-top: 30px;
   transition: 0.3s;
+  border-radius: 10px;
 }
 
 .back {
-    margin-top: 20px;
-    margin-left: 20px;
-    width: 60px;
-    height: 60px;
-    border-radius: 50px;
-    background-color: rgb(26, 26, 26);
-    border: none;
-    color: white;
-    font-size: 25px;
+  margin-top: 20px;
+  margin-left: 20px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50px;
+  background-color: rgb(26, 26, 26);
+  border: none;
+  color: white;
+  font-size: 25px;
+}
 
-  }
-
-  .back:hover {
-    border: 1px solid #fff;
-  }
-
-
+.back:hover {
+  border: 1px solid #fff;
+}
 
 .btn-login:hover {
   background-color: #e00914;
@@ -143,8 +138,4 @@ input {
     transform: translateY(0);
   }
 }
-
-
-
-
 </style>

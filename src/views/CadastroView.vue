@@ -1,18 +1,9 @@
 <script setup>
-
-
 </script>
 
 <template>
-
   <div class="container">
-
-
-
-
-
     <div class="login">
-
       <RouterLink to="/login">
         <button class="back"><i class="fas fa-arrow-left"></i></button>
       </RouterLink>
@@ -24,32 +15,34 @@
         </div>
         <p>Bem-vindo a StarPlus, cadastre-se como usuario</p>
 
-        <input style="margin-top: 5vh;" type="name" placeholder="nome">
-        <input type="text" placeholder="seuemail@gmail.com">
-        <input type="password" placeholder="sua senha">
-        <input type="password" placeholder="confimar senha">
+        <div class="input-group" style="margin-top: 30px;">
+          <i class="fas fa-user icon"></i>
+          <input type="text" placeholder="Nome">
+        </div>
 
-        <button class="btn-login">
+        <div class="input-group">
+          <i class="fas fa-envelope icon"></i>
+          <input type="text" placeholder="seuemail@gmail.com">
+        </div>
 
-          CADASTRAR
+        <div class="input-group">
+          <i class="fas fa-lock icon"></i>
+          <input type="password" placeholder="sua senha">
+        </div>
 
-        </button>
+        <div class="input-group">
+          <i class="fas fa-lock icon"></i>
+          <input type="password" placeholder="confirmar senha">
+        </div>
 
-        <p>Ja possui conta? <RouterLink style="color: rgb(98, 138, 224);" to="/login">Clique Aqui</RouterLink>
+        <button class="btn-login">CADASTRAR</button>
+
+        <p>Já possui conta?
+          <RouterLink style="color: rgb(98, 138, 224);" to="/login">Clique Aqui</RouterLink>
         </p>
-
-
-
-
       </div>
-
-
-
     </div>
-
-
   </div>
-
 </template>
 
 <style scoped>
@@ -63,12 +56,9 @@
   height: 100vh;
 }
 
-
-
 .txt-white {
   color: white;
   font-size: 1.5rem;
-
 }
 
 .txt-red {
@@ -82,10 +72,9 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 10vh;
+  margin-top: 15vh;
   gap: 10px;
   animation: slideUp 2s ease-out;
-
 }
 
 p {
@@ -93,19 +82,29 @@ p {
   font-size: 0.9rem;
 }
 
-input {
-  justify-content: center;
-  background-color: rgb(15, 15, 15);
-  border: none;
-  border-bottom: 1px solid white;
+.input-group {
+  display: flex;
+  align-items: center;
+  background-color: rgb(39, 39, 39);
+  border-radius: 10px;
+  padding: 10px;
   width: 500px;
   height: 40px;
-  color: white;
-  font-size: 13pt;
+  gap: 10px;
 }
 
-input:focus {
-  outline: none
+.icon {
+  color: white;
+  font-size: 16px;
+}
+
+input {
+  flex: 1;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 13pt;
+  outline: none;
 }
 
 .btn-login {
@@ -114,8 +113,9 @@ input:focus {
   padding: 15px;
   width: 500px;
   color: white;
-  margin-top: 50px;
+  margin-top: 30px;
   transition: 0.3s;
+  border-radius: 10px;
 }
 
 .back {
@@ -128,14 +128,11 @@ input:focus {
   border: none;
   color: white;
   font-size: 25px;
-
 }
 
 .back:hover {
   border: 1px solid #fff;
 }
-
-
 
 .btn-login:hover {
   background-color: #e00914;
@@ -146,7 +143,6 @@ input:focus {
     opacity: 0;
     transform: translateY(20px);
   }
-
   100% {
     opacity: 1;
     transform: translateY(0);
