@@ -44,7 +44,9 @@ function toggleMenu() {
   </header>
 
   <div :class="['nav-menu', { active: isMenuActive }]">
-    <i class="fa-solid fa-x" @click="toggleMenu()"></i>
+    <div @click="toggleMenu()">
+      <i class="fa-solid fa-x"></i>
+    </div>
     <nav class="nav-link">
       <ul class="ul-link">
         <li class="nav-item">
@@ -62,7 +64,6 @@ function toggleMenu() {
 </template>
 
 <style scoped>
-
 header {
   height: 5rem;
   display: flex;
@@ -117,9 +118,11 @@ nav a {
 .nav-menu {
   position: fixed;
   left: 0;
+  top: 0;
+  z-index: 1000;
   width: 30%;
   height: 100%;
-  background-color: rgb(10, 10, 10);
+  background-color: rgb(23, 23, 23);
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -159,14 +162,14 @@ nav a {
 }
 
 .fa-x {
-position: absolute;
-color: #fff;
-font-size: 30px;
-top: 0;
-right: 5px;
-cursor: pointer;
-margin-top: 30px;
-margin-right: 30px;
+  position: absolute;
+  color: #fff;
+  font-size: 25px;
+  top: 0;
+  right: 5px;
+  cursor: pointer;
+  margin-top: 30px;
+  margin-right: 30px;
 
 }
 
@@ -219,12 +222,4 @@ margin-right: 30px;
   color: #888;
   pointer-events: none;
 }
-
-
-
-
-
-
-
-
 </style>

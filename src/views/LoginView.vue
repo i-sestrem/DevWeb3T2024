@@ -29,7 +29,7 @@
 
       </button>
 
-      <p>Não possui conta? <RouterLink to="/cadastro">Clique Aqui</RouterLink></p>
+      <p>Não possui conta? <RouterLink style="color: rgb(98, 138, 224);" to="/cadastro">Clique Aqui</RouterLink></p>
 
 
 
@@ -40,8 +40,6 @@
 
   </div>
 
-  <div class="img">
-  </div>
 
 </div>
 
@@ -54,28 +52,25 @@
 }
 
 .login {
-  background-color: rgb(0, 0, 0);
-  width: 50%;
+  background-color: rgb(15, 15, 15);
+  width: 100%;
   height: 100vh;
 }
 
-.img {
-  background-color: aqua;
-  width: 50%;
-  height: 100vh;
-  background-image: url('/src/assets/img/jacob-mejicanos-IM6t12LL7KM-unsplash.jpg');
-  background-size: cover;
-  background-position: center;
+input:focus {
+  outline: none
 }
 
 .txt-white {
   color: white;
+  font-size: 1.5rem;
 
 }
 
 .txt-red {
   color: #9e060d;
   margin-left: 10px;
+  font-size: 1.5rem;
 }
 
 .form {
@@ -91,31 +86,28 @@
 
 p {
   color: rgb(153, 153, 153);
+  font-size: 0.9rem;
 }
 
 input {
   justify-content: center;
-  background-color: black;
+  background-color:  rgb(15, 15, 15);
   border: none;
   border-bottom: 1px solid white;
   width: 500px;
-  height: 50px;
+  height: 40px;
   color: white;
-  font-size: 14pt;
+  font-size: 13pt;
 }
 
 .btn-login {
   background: #9e060d;
   border: none;
-  padding: 20px;
+  padding: 15px;
   width: 500px;
   color: white;
   margin-top: 50px;
   transition: 0.3s;
-}
-
-.btn-login:hover {
-  background-color: #e00914;
 }
 
 .back {
@@ -135,6 +127,12 @@ input {
     border: 1px solid #fff;
   }
 
+
+
+.btn-login:hover {
+  background-color: #e00914;
+}
+
 @keyframes slideUp {
   0% {
     opacity: 0;
@@ -145,7 +143,6 @@ input {
     transform: translateY(0);
   }
 }
-
 
 
 

@@ -1,6 +1,7 @@
 <script setup>
 import { ref, onMounted } from 'vue';
 import HeaderVue from '@/components/HeaderVue.vue';
+import FooterVue from '@/components/FooterVue.vue';
 import api from '@/plugins/axios';
 import Loading from 'vue-loading-overlay';
 
@@ -34,7 +35,7 @@ onMounted(async () => {
 </script>
 <template>
   <HeaderVue>
-    
+
   </HeaderVue>
     <h1 class="title">FILMES</h1>
     <ul class="genre-list">
@@ -59,6 +60,7 @@ onMounted(async () => {
 
         </div>
     </div>
+    <FooterVue></FooterVue>
 </template>
 <style scoped>
 .genre-list {
@@ -85,11 +87,11 @@ onMounted(async () => {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 3rem;
+    gap: 2rem;
 }
 
 .movie-card {
-    width: 23rem;
+    width: 21rem;
     height: 36rem;
     overflow: hidden;
     background-color: #0c0c0c;
