@@ -1,5 +1,6 @@
 <script setup>
 import { ref, onMounted } from 'vue';
+import HeaderVue from '@/components/HeaderVue.vue';
 import api from '@/plugins/axios';
 import Loading from 'vue-loading-overlay';
 
@@ -32,6 +33,9 @@ onMounted(async () => {
 });
 </script>
 <template>
+  <HeaderVue>
+    
+  </HeaderVue>
     <h1 class="title">FILMES</h1>
     <ul class="genre-list">
         <li v-for="genre in genres" :key="genre.id" @click="listMovies(genre.id)" class="genre-item">

@@ -1,35 +1,38 @@
 <script setup>
 
+
 </script>
 
 <template>
-
 
   <div class="container">
 
 
 
+
+
   <div class="login">
 
-    <RouterLink to="/">
+    <RouterLink to="/login">
       <button class="back"><i class="fas fa-arrow-left"></i></button>
     </RouterLink>
 
     <div class="form">
       <div style="display: flex;"><h1 class="txt-white">SEJA BEM-VINDO</h1><h1 class="txt-red">STAR-PLUS</h1></div>
-      <p>Bem-vindo de volta, entre na sua conta de usuario</p>
+      <p>Bem-vindo a StarPlus, cadastre-se como usuario</p>
 
-
-      <input style="margin-top: 10vh;" type="text" placeholder="seuemail@gmail.com">
+<input style="margin-top: 5vh;" type="name" placeholder="nome">
+      <input type="text" placeholder="seuemail@gmail.com">
       <input type="password" placeholder="sua senha">
+      <input type="password" placeholder="confimar senha">
 
       <button class="btn-login">
 
-        LOGIN
+        CADASTRAR
 
       </button>
 
-      <p>Não possui conta? <RouterLink to="/cadastro">Clique Aqui</RouterLink></p>
+      <p>Ja possui conta? <RouterLink to="/login">Clique Aqui</RouterLink></p>
 
 
 
@@ -114,10 +117,6 @@ input {
   transition: 0.3s;
 }
 
-.btn-login:hover {
-  background-color: #e00914;
-}
-
 .back {
     margin-top: 20px;
     margin-left: 20px;
@@ -135,6 +134,12 @@ input {
     border: 1px solid #fff;
   }
 
+
+
+.btn-login:hover {
+  background-color: #e00914;
+}
+
 @keyframes slideUp {
   0% {
     opacity: 0;
@@ -145,7 +150,6 @@ input {
     transform: translateY(0);
   }
 }
-
 
 
 

@@ -1,5 +1,6 @@
 <script setup>
   import { ref, onMounted } from 'vue';
+  import HeaderVue from '@/components/HeaderVue.vue';
   import api from '@/plugins/axios';
 
   const genres = ref([]);
@@ -11,6 +12,7 @@
 </script>
 
 <template>
+  <HeaderVue></HeaderVue>
     <h1>Programas de TV</h1>
     <ul class="genre-list">
       <li v-for="genre in genres" :key="genre.id" class="genre-item">
@@ -18,7 +20,7 @@
       </li>
     </ul>
   </template>
-  
+
   <style scoped>
     .genre-list {
       display: flex;
@@ -28,7 +30,7 @@
       list-style: none;
       padding: 0;
     }
-  
+
     .genre-item {
       background-color: #5d6424;
       border-radius: 1rem;
@@ -38,7 +40,7 @@
       display: flex;
       justify-content: center;
     }
-  
+
     .genre-item:hover {
       cursor: pointer;
       background-color: #7d8a2e;
