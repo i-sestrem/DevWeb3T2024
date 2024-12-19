@@ -1,10 +1,36 @@
 <script setup>
+import { ref } from 'vue';
+
+
+const email = ref('');
+const senha = ref('');
+const mostrarMensagemSucesso = ref(false);
+
+
+const validarFormulario = (event) => {
+  event.preventDefault();
+
+
+  if (!email.value) {
+    alert('Por favor, insira um e-mail válido.');
+    return;
+  }
+  if (!senha.value) {
+    alert('Por favor, preencha sua senha.');
+    return;
+  }
+
+
+  mostrarMensagemSucesso.value = true;
+};
+
+
 </script>
 
 <template>
   <div class="container">
     <div class="login">
-      <RouterLink to="/">
+      <RouterLink to="/login">
         <button class="back"><i class="fas fa-arrow-left"></i></button>
       </RouterLink>
 
@@ -13,24 +39,47 @@
           <h1 class="txt-white">SEJA BEM-VINDO</h1>
           <h1 class="txt-red">STAR-PLUS</h1>
         </div>
-        <p>Bem-vindo de volta, entre na sua conta de usuário</p>
+        <p>Bem-vindo a StarPlus, entre na sua conta de usuario</p>
 
-        <div class="input-group" style="margin-top: 30px;">
-          <i class="fas fa-envelope icon"></i>
-          <input type="text" placeholder="seuemail@gmail.com">
-        </div>
+        <form @submit="validarFormulario">
 
-        <div class="input-group">
-          <i class="fas fa-lock icon"></i>
-          <input type="password" placeholder="sua senha">
-        </div>
 
-        <button class="btn-login">LOGIN</button>
+          <div style="margin-top: 50px;" class="input-group">
+            <i class="fas fa-envelope icon"></i>
+            <input
+              v-model="email"
+              type="email"
+              required
+              placeholder="seuemail@gmail.com"
+            />
+          </div>
+
+          <div class="input-group">
+            <i class="fas fa-lock icon"></i>
+            <input
+              v-model="senha"
+              type="password"
+              required
+              placeholder="sua senha"
+            />
+          </div>
+          <button class="btn-login" type="submit">
+            ENTRAR
+          </button>
+        </form>
 
         <p>Não possui conta?
           <RouterLink style="color: rgb(98, 138, 224);" to="/cadastro">Clique Aqui</RouterLink>
         </p>
       </div>
+    </div>
+
+    <div
+      v-if="mostrarMensagemSucesso"
+      class="mensagem-sucesso"
+    >
+      <p style="color: black;">Usuário criado com sucesso!</p>
+      <RouterLink to="/"><button>OK</button></RouterLink>
     </div>
   </div>
 </template>
@@ -81,6 +130,7 @@ p {
   width: 500px;
   height: 40px;
   gap: 10px;
+  margin-top: 10px;
 }
 
 .icon {
@@ -125,6 +175,35 @@ input {
 }
 
 .btn-login:hover {
+  background-color: #e00914;
+}
+
+.mensagem-sucesso {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 70px;
+  width: 500px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  color: black;
+}
+
+.mensagem-sucesso button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: #9e060d;
+  border: none;
+  width: 100px;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.mensagem-sucesso button:hover {
   background-color: #e00914;
 }
 

@@ -1,4 +1,48 @@
 <script setup>
+import { ref } from 'vue';
+
+const nome = ref('');
+const email = ref('');
+const senha = ref('');
+const confirmarSenha = ref('');
+const mostrarMensagemSucesso = ref(false);
+
+
+const validarFormulario = (event) => {
+  event.preventDefault();
+
+  if (!nome.value) {
+    alert('Por favor, preencha seu nome.');
+    return;
+  }
+  if (!email.value) {
+    alert('Por favor, insira um e-mail válido.');
+    return;
+  }
+  if (!senha.value) {
+    alert('Por favor, preencha sua senha.');
+    return;
+  }
+  if (!confirmarSenha.value) {
+    alert('Por favor, confirme sua senha.');
+    return;
+  }
+  if (senha.value !== confirmarSenha.value) {
+    alert('As senhas não coincidem.');
+    return;
+  }
+
+  mostrarMensagemSucesso.value = true;
+};
+
+
+const fecharMensagemSucesso = () => {
+  mostrarMensagemSucesso.value = false;
+  nome.value = '';
+  email.value = '';
+  senha.value = '';
+  confirmarSenha.value = '';
+};
 </script>
 
 <template>
@@ -13,34 +57,66 @@
           <h1 class="txt-white">SEJA BEM-VINDO</h1>
           <h1 class="txt-red">STAR-PLUS</h1>
         </div>
-        <p>Bem-vindo a StarPlus, cadastre-se como usuario</p>
+        <p>Bem-vindo a StarPlus, cadastre-se como usuário</p>
 
-        <div class="input-group" style="margin-top: 30px;">
-          <i class="fas fa-user icon"></i>
-          <input type="text" placeholder="Nome">
-        </div>
+        <form @submit="validarFormulario">
+          <div class="input-group" style="margin-top: 30px;">
+            <i class="fas fa-user icon"></i>
+            <input
+              v-model="nome"
+              type="text"
+              required
+              placeholder="Digite seu nome"
+            />
+          </div>
 
-        <div class="input-group">
-          <i class="fas fa-envelope icon"></i>
-          <input type="text" placeholder="seuemail@gmail.com">
-        </div>
+          <div class="input-group">
+            <i class="fas fa-envelope icon"></i>
+            <input
+              v-model="email"
+              type="email"
+              required
+              placeholder="seuemail@gmail.com"
+            />
+          </div>
 
-        <div class="input-group">
-          <i class="fas fa-lock icon"></i>
-          <input type="password" placeholder="sua senha">
-        </div>
+          <div class="input-group">
+            <i class="fas fa-lock icon"></i>
+            <input
+              v-model="senha"
+              type="password"
+              required
+              placeholder="sua senha"
+            />
+          </div>
 
-        <div class="input-group">
-          <i class="fas fa-lock icon"></i>
-          <input type="password" placeholder="confirmar senha">
-        </div>
+          <div class="input-group">
+            <i class="fas fa-lock icon"></i>
+            <input
+              v-model="confirmarSenha"
+              type="password"
+              required
+              placeholder="confirmar senha"
+            />
+          </div>
 
-        <button class="btn-login">CADASTRAR</button>
+          <button class="btn-login" type="submit">
+            CADASTRAR
+          </button>
+        </form>
 
         <p>Já possui conta?
           <RouterLink style="color: rgb(98, 138, 224);" to="/login">Clique Aqui</RouterLink>
         </p>
       </div>
+    </div>
+
+    <div
+      v-if="mostrarMensagemSucesso"
+      class="mensagem-sucesso"
+    >
+      <p style="color: black;">Usuário criado com sucesso!</p>
+      <button @click="fecharMensagemSucesso">OK</button>
     </div>
   </div>
 </template>
@@ -91,6 +167,7 @@ p {
   width: 500px;
   height: 40px;
   gap: 10px;
+  margin-top: 10px;
 }
 
 .icon {
@@ -135,6 +212,35 @@ input {
 }
 
 .btn-login:hover {
+  background-color: #e00914;
+}
+
+.mensagem-sucesso {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 70px;
+  width: 500px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  color: black;
+}
+
+.mensagem-sucesso button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: #9e060d;
+  border: none;
+  width: 100px;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.mensagem-sucesso button:hover {
   background-color: #e00914;
 }
 
