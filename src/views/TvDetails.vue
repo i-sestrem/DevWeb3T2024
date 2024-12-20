@@ -1,6 +1,7 @@
 <script setup>
 import { onMounted, defineProps } from 'vue';
 import { useTvStore } from '@/stores/tv';
+import HeaderVue from '@/components/HeaderVue.vue';
 const tvStore = useTvStore();
 
 const props = defineProps({
@@ -17,6 +18,8 @@ onMounted(async () => {
 </script>
 
 <template>
+    <HeaderVue></HeaderVue>
+
     <div class="tv-details">
       <div class="content">
         <img
@@ -26,7 +29,7 @@ onMounted(async () => {
         />
 
         <div class="details">
-          <h1 class="tv-title">{{ tvStore.currentTv.name }}</h1>
+          <h1 class="tv-title">{{ (tvStore.currentTv.name) }}</h1>
           <p class="tagline">{{ tvStore.currentTv.tagline }}</p>
           <p class="overview">{{ tvStore.currentTv.overview }}</p>
           <p class="rating">Avaliação: {{ tvStore.currentTv.vote_average }}</p>
@@ -34,7 +37,7 @@ onMounted(async () => {
       </div>
 
       <div class="production-companies">
-        <p class="companies-title">Produtoras</p>
+        <p class="companies-title">PRODUTORAS</p>
         <div class="companies-list">
           <template v-for="company in tvStore.currentTv.production_companies" :key="company.id">
             <div class="company">
@@ -53,9 +56,17 @@ onMounted(async () => {
   </template>
 
   <style scoped>
+
+
    .movie-details {
     text-align: center;
     padding: 20px;
+  }
+
+  .production-companies {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(180, 180, 180);
   }
 
   .content {
@@ -63,30 +74,36 @@ onMounted(async () => {
     justify-content: center;
     align-items: center;
     margin-bottom: 20px;
+    margin-top: 130px;
+    gap: 100px;
   }
 
   .poster-image {
-    width: 185px;
+    border: 10px solid rgb(255, 255, 255);
+    color: white;
+    width: 400px;
     height: auto;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     margin-right: 20px;
+    margin-bottom: 90px;
   }
 
   .details {
     max-width: 600px;
+
+    border-radius: 25px;
+   
   }
 
   .movie-title {
     font-size: 2rem;
     font-weight: bold;
     margin-bottom: 10px;
-    color: #ff4500;
+    color: #000000;
   }
 
   .tagline {
     font-style: italic;
-    color: #777;
+    color: #ffffff;
     margin-bottom: 10px;
   }
 
@@ -111,7 +128,7 @@ onMounted(async () => {
     font-size: 1.5rem;
     font-weight: bold;
     margin-bottom: 10px;
-    color: #ff4500;
+    color: #000000;
     text-align: center;
   }
 
@@ -130,7 +147,11 @@ onMounted(async () => {
     height: auto;
     margin-right: 10px;
     border-radius: 4px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+
+  }
+
+  p, h1 {
+    color: rgb(255, 255, 255);
   }
 
   .company-name {
@@ -141,6 +162,7 @@ onMounted(async () => {
   .content {
     flex-direction: column;
     align-items: center;
+    
   }
 
   .poster-image {
@@ -151,6 +173,7 @@ onMounted(async () => {
   .details {
     max-width: 100%;
     padding: 0 20px;
+
   }
 
   .companies-list {

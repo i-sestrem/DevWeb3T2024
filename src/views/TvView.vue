@@ -175,12 +175,12 @@ onMounted(async () => {
 }
 
 .active {
-  background-color: #67b086;
+  background-color: rgb(177, 22, 22);
   font-weight: bolder;
 }
 
 .tv-genres span.active {
-  background-color: #abc322;
+  background-color: rgb(177, 22, 22);
   color: #000;
   font-weight: bolder;
 }
