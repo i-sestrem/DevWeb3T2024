@@ -30,7 +30,7 @@ const validarFormulario = (event) => {
 <template>
   <div class="container">
     <div class="login">
-      <RouterLink to="/login">
+      <RouterLink to="/filmes">
         <button class="back"><i class="fas fa-arrow-left"></i></button>
       </RouterLink>
 

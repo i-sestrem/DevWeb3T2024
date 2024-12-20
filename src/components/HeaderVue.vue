@@ -56,7 +56,7 @@ function toggleMenu() {
           <router-link class="link" to="/filmes">FILMES</router-link>
         </li>
         <li class="nav-item">
-          <router-link class="link" to="/tv">SERIE</router-link>
+          <router-link class="link" to="/tv">SERIES</router-link>
         </li>
       </ul>
     </nav>

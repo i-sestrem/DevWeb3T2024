@@ -27,6 +27,18 @@ const routes = [
     path: '/cadastro',
     name: 'Cadastro',
     component: () => import('../views/CadastroView.vue')
+  },
+  {
+    path: '/movie/:movieId',
+    name: 'MovieDetails',
+    component: () => import('../views/MovieDetails.vue'),
+    props: true,
+  },
+  {
+    path: '/tv/:tvId',
+    name: 'TvDetails',
+    component: () => import('../views/TvDetails.vue'),
+    props: true,
   }
 ];
 
